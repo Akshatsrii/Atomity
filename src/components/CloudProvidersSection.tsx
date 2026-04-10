@@ -1,26 +1,4 @@
-// components/CloudProvidersSection.tsx
-import React from 'react'
-import { motion } from 'framer-motion'
-import { useInView } from '../hooks/useInView'
 
-function AWSLogo() {
-  return (
-    <svg viewBox="0 0 90 36" width="90" height="36" fill="none">
-      <text x="0" y="27" fontSize="26" fontWeight="900" fontFamily="'DM Sans',sans-serif" fill="var(--color-text-primary)">aws</text>
-      <path d="M42 32 Q56 37 70 32" stroke="#FF9900" strokeWidth="3.5" strokeLinecap="round" fill="none"/>
-    </svg>
-  )
-}
-
-function AzureLogo() {
-  return (
-    <svg viewBox="0 0 100 36" width="100" height="36" fill="none">
-      <polygon points="14,4 0,32 9,32 23,9" fill="#0078D4"/>
-      <polygon points="14,4 28,32 37,32 23,9" fill="#0078D4" opacity="0.7"/>
-      <text x="42" y="27" fontSize="19" fontWeight="700" fontFamily="'DM Sans',sans-serif" fill="#0078D4">Azure</text>
-    </svg>
-  )
-}
 
 function GCPLogo() {
   return (
