@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg-primary: #f4f6f3;
+  --color-bg-secondary: #eaede8;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #f9fffc;
+  --color-bg-glass: rgba(255,255,255,0.72);
+  --color-text-primary: #0d1f1a;
+  --color-text-secondary: #2d4a3e;
+  --color-text-muted: #6b8878;
+  --color-text-inverse: #ffffff;
+  --color-accent-primary: #3ddc84;
+  --color-accent-primary-light: #78f0ac;
+  --color-accent-primary-dark: #19b864;
+  --color-accent-glow: rgba(61,220,132,0.35);
+  --color-accent-success: #1ab866;
+  --color-accent-warning: #f5a623;
+  --color-accent-error: #e8394e;
+  --color-accent-blue: #4f8ef7;
+  --color-accent-purple: #9b6dff;
+  --color-border-default: #dde5df;
+  --color-border-accent: #3ddc84;
+  --color-bubble-fill: #3ddc84;
+  --color-bubble-fill-light: color-mix(in srgb, #3ddc84 22%, transparent);
+  --color-grid-line: #e2e8e4;
+  --shadow-card: 0 2px 20px rgba(13,31,26,0.07);
+  --shadow-elevated: 0 12px 48px rgba(13,31,26,0.11);
+  --shadow-glow: 0 0 40px rgba(61,220,132,0.4);
+  --shadow-glow-sm: 0 0 18px rgba(61,220,132,0.28);
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+[data-theme="dark"] {
+  --color-bg-primary: #080e0b;
+  --color-bg-secondary: #0c1510;
+  --color-bg-card: #101a13;
+  --color-bg-card-hover: #152019;
+  --color-bg-glass: rgba(10,18,13,0.85);
+  --color-text-primary: #e2f0e8;
+  --color-text-secondary: #9dc4ae;
+  --color-text-muted: #4e7a60;
+  --color-text-inverse: #0d1f1a;
+  --color-border-default: #182a1e;
+  --color-bubble-fill-light: color-mix(in srgb, #3ddc84 14%, transparent);
+  --color-grid-line: #132018;
+  --shadow-card: 0 2px 20px rgba(0,0,0,0.4);
+  --shadow-elevated: 0 12px 48px rgba(0,0,0,0.6);
+  --shadow-glow: 0 0 52px rgba(61,220,132,0.5);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--color-bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--color-accent-primary); border-radius: 9999px; }
+
+.fluid-hero  { font-size: clamp(2.6rem, 6.5vw, 5.8rem); line-height: 1.04; }
+.fluid-h2    { font-size: clamp(1.9rem, 4vw, 3.4rem); line-height: 1.1; }
+.fluid-h3    { font-size: clamp(1.2rem, 2.5vw, 1.9rem); line-height: 1.2; }
+.fluid-body  { font-size: clamp(0.9rem, 1.8vw, 1.08rem); }
+
+.cost-card-container { container-type: inline-size; container-name: cost-card; }
+@container cost-card (max-width: 180px) {
+  .cost-card-label { font-size: 0.65rem; }
+  .cost-card-value { font-size: 1.1rem; }
+}
+
+.dot-grid {
+  background-image: radial-gradient(circle, var(--color-border-default) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.glass {
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-accent-primary) 0%, #58e8a4 50%, var(--color-accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, var(--color-accent-primary) 20%, var(--color-accent-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-card { transition: box-shadow 0.3s ease, transform 0.3s ease; }
+.glow-card:hover { box-shadow: var(--shadow-glow), var(--shadow-elevated); transform: translateY(-4px); }
+
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  33%      { transform: translateY(-14px) rotate(1.5deg); }
+  66%      { transform: translateY(-7px) rotate(-1deg); }
+}
+@keyframes floatSlow {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-20px); }
+}
+@keyframes pulseGlow {
+  0%,100% { box-shadow: 0 0 20px rgba(61,220,132,0.3); }
+  50%      { box-shadow: 0 0 55px rgba(61,220,132,0.7), 0 0 90px rgba(61,220,132,0.3); }
+}
+@keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes blink    { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes shimmer  {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes ripple {
+  0%   { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(70px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(70px) rotate(-360deg); }
+}
+@keyframes scanLine {
+  0%   { top: -2%; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { top: 102%; opacity: 0; }
+}
+@keyframes dash {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes neonPulse {
+  0%,100% { text-shadow: 0 0 8px rgba(61,220,132,0.5); }
+  50%      { text-shadow: 0 0 24px rgba(61,220,132,0.9), 0 0 48px rgba(61,220,132,0.4); }
+}
+
+.animate-float       { animation: float 5s ease-in-out infinite; }
+.animate-float-slow  { animation: floatSlow 8s ease-in-out infinite; }
+.animate-pulse-glow  { animation: pulseGlow 2.8s ease-in-out infinite; }
+.animate-spin-slow   { animation: spinSlow 22s linear infinite; }
+.animate-blink       { animation: blink 1s step-end infinite; }
+.animate-gradient    { background-size: 200% 200%; animation: gradientShift 4s ease infinite; }
+.animate-neon        { animation: neonPulse 2s ease-in-out infinite; }
+
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
