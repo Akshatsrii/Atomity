@@ -170,8 +170,8 @@ export function HeroSection({ onNavigate }: { onNavigate: (p: string) => void })
       {/* Big glow */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
         <motion.div
-          style={{ y: y1, opacity }}
           className="w-[700px] h-[500px] rounded-full"
+          style={{ filter: 'blur(60px)', y: y1, opacity }}
           animate={{
             background: [
               'radial-gradient(ellipse, rgba(61,220,132,0.15) 0%, transparent 70%)',
@@ -180,7 +180,6 @@ export function HeroSection({ onNavigate }: { onNavigate: (p: string) => void })
             ]
           }}
           transition={{ duration: 4, repeat: Infinity }}
-          style={{ filter: 'blur(60px)', y: y1, opacity }}
         />
       </div>
 
