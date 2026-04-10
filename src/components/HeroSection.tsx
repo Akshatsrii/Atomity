@@ -1,3 +1,43 @@
+// components/HeroSection.tsx
+import React, { useEffect, useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useInView } from '../hooks/useInView'
+import { useCountUp } from '../hooks/useCountUp'
+
+function StatCard({ value, label, suffix = '', prefix = '$', delay, color = 'var(--color-accent-primary)' }: {
+  value: number; label: string; suffix?: string; prefix?: string; delay: number; color?: string
+}) {
+  const { ref, inView } = useInView({ threshold: 0.4 })
+  const display = useCountUp({ end: value, prefix, suffix, enabled: inView, duration: 1600 })
+  return (
+    <motion.div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      initial={{ opacity: 0, y: 30, scale: 0.9 }}
+      animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+      transition={{ duration: 0.6, delay, ease: [0.34, 1.56, 0.64, 1] }}
+      whileHover={{ y: -5, scale: 1.04 }}
+      className="cost-card-container glow-card flex flex-col gap-1.5 p-5 rounded-2xl relative overflow-hidden"
+      style={{
+        backgroundColor: 'var(--color-bg-card)',
+        border: '1px solid var(--color-border-default)',
+        boxShadow: 'var(--shadow-card)',
+      }}
+    >
+      <div className="absolute top-0 right-0 w-20 h-20 rounded-full -mr-8 -mt-8"
+        style={{ backgroundColor: `color-mix(in srgb, ${color} 8%, transparent)` }} />
+      <span
+        className="cost-card-value tabular-nums text-3xl font-black gradient-text-warm"
+        style={{ fontFamily: 'var(--font-display)' }}
+      >
+        {display}
+      </span>
+      <span className="cost-card-label text-xs font-semibold uppercase tracking-widest"
+        style={{ color: 'var(--color-text-muted)' }}>
+        {label}
+      </span>
+    </motion.div>
+  )
+}
 
 // Floating particle
 function Particle({ x, y, delay, size = 6 }: { x: number; y: number; delay: number; size?: number }) {
