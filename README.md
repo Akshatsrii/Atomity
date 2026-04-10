@@ -24,6 +24,12 @@
 
 <br/>
 
+### 🌐 [**Live Demo → atomity-p7a5-eta.vercel.app**](https://atomity-p7a5-eta.vercel.app/)
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-atomity--p7a5--eta.vercel.app-22c55e?style=for-the-badge&logo=vercel&logoColor=white)](https://atomity-p7a5-eta.vercel.app/)
+
+<br/>
+
 [![React](https://img.shields.io/badge/React_18-61DAFB?style=for-the-badge&logo=react&logoColor=20232A)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
@@ -107,6 +113,8 @@ vercel --prod
 ```
 
 > **Requirements:** Node.js ≥ 18 · npm ≥ 9
+
+> **Live deployment:** [https://atomity-p7a5-eta.vercel.app/](https://atomity-p7a5-eta.vercel.app/)
 
 ---
 
@@ -778,6 +786,8 @@ atomity/
 *14 hand-built components · 5 full pages · 15+ animations · 3 custom hooks · zero UI libraries*
 
 <br/>
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-atomity--p7a5--eta.vercel.app-22c55e?style=for-the-badge&logo=vercel&logoColor=white)](https://atomity-p7a5-eta.vercel.app/)
 
 ![Made with React](https://img.shields.io/badge/Made_with-React_18-61DAFB?style=flat-square&logo=react)
 ![TypeScript](https://img.shields.io/badge/100%25-TypeScript-3178C6?style=flat-square&logo=typescript)
